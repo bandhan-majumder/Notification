@@ -85,12 +85,13 @@ const Home = () => {
                             fontWeight: '500',
                             color: '#555',
                             fontSize: '16px',
-                        }}>Phone Number (with country code):</label>
+                        }}>Phone Number (+ country code):</label>
                         <input
                             type="tel"
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
                             required
+                            placeholder='+912345678999'
                             style={{
                                 padding: '12px 16px',
                                 borderRadius: '4px',
