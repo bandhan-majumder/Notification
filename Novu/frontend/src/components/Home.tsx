@@ -9,7 +9,7 @@ const Home = () => {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
-            const response = await axios.post("http://localhost:3000/trigger-event", {
+            const response = await axios.post("https://notification-tvct.onrender.com/trigger-event", {
                 email,
                 phone: phoneNumber
             })
