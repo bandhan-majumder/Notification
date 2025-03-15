@@ -62,6 +62,7 @@ const Home = () => {
                         <input
                             type="email"
                             value={email}
+                            placeholder='example@example.com'
                             onChange={(e) => setEmail(e.target.value)}
                             required
                             style={{
