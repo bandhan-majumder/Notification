@@ -10,7 +10,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendMessage = exports.disconnectProducer = exports.connectProducer = void 0;
-// kafka/producer.js
 const kafkajs_1 = require("kafkajs");
 const kafka = new kafkajs_1.Kafka({
     clientId: 'todo-app',

@@ -15,12 +15,12 @@ const kafka = new Kafka({
   brokers: ['localhost:9092']
 });
 
-const consumer = kafka.consumer({ groupId: 'todo-notifications' });
+const consumer = kafka.consumer({ groupId: 'todoNotifications' });
 
 export const startConsumer = async () => {
   try {
     await consumer.connect();
-    await consumer.subscribe({ topic: 'todo-notifications', fromBeginning: true });
+    await consumer.subscribe({ topic: 'todoNotifications', fromBeginning: true });
 
     await consumer.run({
       eachMessage: async ({ topic, partition, message }) => {

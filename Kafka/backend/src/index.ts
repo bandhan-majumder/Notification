@@ -42,7 +42,7 @@ app.post('/add-todo', async (req, res) => {
   console.log(resp);
   
   // Send message to Kafka
-  await sendMessage('todo-notifications', {
+  await sendMessage('todoNotifications', {
     id: resp.id,
     title: todo,
     createdAt: new Date()

@@ -56,11 +56,11 @@ const kafka = new kafkajs_1.Kafka({
     clientId: 'todo-app-consumer',
     brokers: ['localhost:9092']
 });
-const consumer = kafka.consumer({ groupId: 'todo-notifications' });
+const consumer = kafka.consumer({ groupId: 'todoNotifications' });
 const startConsumer = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield consumer.connect();
-        yield consumer.subscribe({ topic: 'todo-notifications', fromBeginning: true });
+        yield consumer.subscribe({ topic: 'todoNotifications', fromBeginning: true });
         yield consumer.run({
             eachMessage: (_a) => __awaiter(void 0, [_a], void 0, function* ({ topic, partition, message }) {
                 //@ts-ignore

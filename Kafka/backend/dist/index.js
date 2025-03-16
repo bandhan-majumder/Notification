@@ -59,8 +59,7 @@ app.use((0, cors_1.default)());
 const port = process.env.PORT || 3000;
 // Connect to Kafka producer when the app starts
 (0, producer_1.connectProducer)().catch(console.error);
-// Start the Kafka consumer in a separate process for production
-// For simplicity, we're starting it here
+// Start Kafka consumer, must be a seperate process for production
 try {
     (0, consumer_1.startConsumer)();
 }
@@ -83,7 +82,7 @@ app.post('/add-todo', (req, res) => __awaiter(void 0, void 0, void 0, function* 
     const resp = yield (0, db_1.addTodo)({ title: todo });
     console.log(resp);
     // Send message to Kafka
-    yield (0, producer_1.sendMessage)('todo-notifications', {
+    yield (0, producer_1.sendMessage)('todoNotifications', {
         id: resp.id,
         title: todo,
         createdAt: new Date()
@@ -93,8 +92,3 @@ app.post('/add-todo', (req, res) => __awaiter(void 0, void 0, void 0, function* 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
-// Handle application shutdown
-process.on('SIGINT', () => __awaiter(void 0, void 0, void 0, function* () {
-    console.log('Shutting down...');
-    process.exit(0);
-}));
